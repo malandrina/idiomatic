@@ -9,7 +9,7 @@ $(document).ready(function() {
 
       if ($term) {
         $.ajax({
-          url: '/translations?' + 'term=' + $term,
+          url: '/translations?term=' + $term,
           method: 'GET',
           success: function(data, status, xhr) {
             $translations.html('');
