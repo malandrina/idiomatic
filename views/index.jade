@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div
+    p(class='translations', hidden=true)
+  div
+    form
+      fieldset
+        input(id='term', type='text', value='')
+      input(id='search-button', type='submit', value='Search')
