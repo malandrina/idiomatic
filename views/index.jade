@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  div
-    p(class='translations', hidden=true)
+  h1 English-Spanish Dictionary
   div
     form
       fieldset
-        input(id='term', type='text', value='')
+        input(id='term', type='text', value='', placeholder='e.g. interloper')
       input(id='search-button', type='submit', value='Search')
+  div(class='translations', hidden=true)

@@ -9,12 +9,15 @@ $(document).ready(function() {
 
       if ($term) {
         $.ajax({
-          url: '/translations',
-          method: 'POST',
-          data: { term: $term },
+          url: '/translations?' + "term=" + $term,
+          method: 'GET',
           success: function(data, status, xhr) {
-            var translations = data.foo;
-            $translations.html(translations);
+            $translations.html("");
+            var translations = data;
+            translations.forEach(function(translation) {
+              return $translations.append("<p>" + translation + "</p>");
+            });
+
             $translations.show();
           }
         });
