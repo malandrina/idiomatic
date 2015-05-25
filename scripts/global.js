@@ -9,13 +9,13 @@ $(document).ready(function() {
 
       if ($term) {
         $.ajax({
-          url: '/translations?' + "term=" + $term,
+          url: '/translations?' + 'term=' + $term,
           method: 'GET',
           success: function(data, status, xhr) {
-            $translations.html("");
+            $translations.html('');
             var translations = data;
             translations.forEach(function(translation) {
-              return $translations.append("<p>" + translation + "</p>");
+              return $translations.append('<p>' + translation + '</p>');
             });
 
             $translations.show();
