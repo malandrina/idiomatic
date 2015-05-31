@@ -13,9 +13,10 @@ $(document).ready(function() {
           method: 'GET',
           success: function(data, status, xhr) {
             $translations.html('');
-            var translations = data;
-            translations.forEach(function(translation) {
-              return $translations.append('<p>' + translation + '</p>');
+            data.forEach(function(data) {
+              $translations.append('<h1>' + data.originalTerm + '</h1>');
+              $translations.append('<p><strong>' + data.originalTermSense + '</strong></p>');
+              $translations.append('<p>' + data.translation + '</p>');
             });
 
             $translations.show();
