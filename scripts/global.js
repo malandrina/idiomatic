@@ -1,10 +1,12 @@
 $(document).ready(function() {
   var $searchButton = $('#search-button');
   var $translations = $('.translations');
+  var $errors = $('.errors');
 
   if ($searchButton && $translations) {
     $searchButton.on('click', function(e) {
       e.preventDefault();
+      $errors.html("").hide();
       var $term = $('#term').val();
 
       if ($term) {
@@ -20,6 +22,10 @@ $(document).ready(function() {
             });
 
             $translations.show();
+          },
+          error: function(xhr, status, error) {
+            $errors.html("Oh no! Something went wrong.");
+            $errors.show();
           }
         });
       };

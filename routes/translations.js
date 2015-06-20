@@ -10,9 +10,14 @@ router.get('/', function(req, res, next) {
     var translationsDeferred = wordReference.translate(
       { to: 'es', from: 'en', term: term }
     );
+
     translationsDeferred.done(function(translationsResponse) {
-      var translations = new Translations()
-      res.json(translations.fromResponse(translationsResponse));
+      if (translationsResponse.errors) {
+        res.status(502).send("Bad Gateway");
+      } else {
+        var translations = new Translations()
+        res.json(translations.fromResponse(translationsResponse));
+      }
     });
   };
 });
