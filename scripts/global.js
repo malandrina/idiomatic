@@ -6,7 +6,7 @@ $(document).ready(function() {
   if ($searchButton && $translations) {
     $searchButton.on('click', function(e) {
       e.preventDefault();
-      $errors.html("").hide();
+      $errors.html('').hide();
       var $term = $('#term').val();
 
       if ($term) {
@@ -24,7 +24,7 @@ $(document).ready(function() {
             $translations.show();
           },
           error: function(xhr, status, error) {
-            $errors.html("Oh no! Something went wrong.");
+            $errors.html('Oh no! Something went wrong.');
             $errors.show();
           }
         });
