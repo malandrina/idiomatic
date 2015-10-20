@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   var term = req.query.term;
 
   if (term) {
-    var translationsDeferred = wordReference.translate(
+    var translationsDeferred = wordReference.getTranslations(
       { to: 'es', from: 'en', term: term }
     );
 
